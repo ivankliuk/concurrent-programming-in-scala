@@ -29,8 +29,8 @@ object Chapter1 {
     * }}}
     *
     * The resulting `Option` object should contain a tuple of values from the
-    * `Option` objects `a` and `b`, given that both a and b are non-empty. Use
-    * `for` comprehensions.
+    * `Option` objects `a` and `b`, given that both `a` and `b` are non-empty.
+    * Use `for` comprehensions.
     */
   def fuse[A, B](a: Option[A], b: Option[B]): Option[(A, B)] =
     for {
@@ -54,7 +54,8 @@ object Chapter1 {
     * check(0 until 10)(40 / _ > 0)
     * }}}
     */
-  def check[T](xs: Seq[T])(pred: T => Boolean): Boolean = xs.forall(x => Try(pred(x)).getOrElse(false))
+  def check[T](xs: Seq[T])(pred: T => Boolean): Boolean =
+    xs.forall(x => Try(pred(x)).getOrElse(false))
 
   /**
     * 4. Modify the Pair class from this chapter so that it can be used in
@@ -63,7 +64,8 @@ object Chapter1 {
   class Pair[P, Q](val first: P, val second: Q)
 
   object Pair {
-    def unapply[P, Q](pair: Pair[P, Q]): Option[(P, Q)] = Some(pair.first, pair.second)
+    def unapply[P, Q](pair: Pair[P, Q]): Option[(P, Q)] =
+      Some(pair.first, pair.second)
   }
 
   /**
